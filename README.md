@@ -1,4 +1,3 @@
-
 ```
  ______             _____  ______   __
 |  ____|           |  __ \|  _ \ \ / /
@@ -11,13 +10,17 @@ Your Open Source Asterisk PBX GUI Solution
 
 ### What?
 
-[FreePBX](http://www.freepbx.org/ "FreePBX Home Page") is an open source GUI (graphical user interface) that controls and manages [Asterisk©](http://www.asterisk.org/ "Asterisk Home Page") (PBX). FreePBX is licensed under GPL.
+[FreePBX](http://www.freepbx.org/ "FreePBX Home Page") is an open source GUI (graphical user interface) that controls
+and manages [Asterisk©](http://www.asterisk.org/ "Asterisk Home Page") (PBX). FreePBX is licensed under GPL.
 
-This is a FreePBX 17 installation script.
+This is a CUSTOM FreePBX 17 installation script that uses minimal commercial dependencies for endpoint manager to work
+with our phones.
 
-This script is to install FreePBX  on the top of vanilla Debian 12.x OS.
+This script is to install FreePBX on the top of vanilla Debian 12.x OS.
 
-[FreePBX](http://www.freepbx.org/ "FreePBX Home Page") is a completely modular GUI for Asterisk written in PHP and Javascript. Meaning you can easily write any module you can think of and distribute it free of cost to your clients so that they can take advantage of beneficial features in [Asterisk](http://www.asterisk.org/ "Asterisk Home Page")
+[FreePBX](http://www.freepbx.org/ "FreePBX Home Page") is a completely modular GUI for Asterisk written in PHP and
+Javascript. Meaning you can easily write any module you can think of and distribute it free of cost to your clients so
+that they can take advantage of beneficial features in [Asterisk](http://www.asterisk.org/ "Asterisk Home Page")
 
 ### Setting up a FreePBX system
 
@@ -29,7 +32,13 @@ This script is to install FreePBX  on the top of vanilla Debian 12.x OS.
 
 ### Contributing
 
-To contribute code or modules back into the [FreePBX](http://www.freepbx.org/ "FreePBX Home Page") ecosystem you must fully read our Code License Agreement. We are not able to look at or accept patches or code of any kind until this document is filled out. To view and sign the contributor license agreement you can visit <https://oss-cla.sangoma.com/freepbx/sng_freepbx_debian_install>. Signing this contributor license agreement once allows you to contribute to all open source projects from Sangoma, including FreePBX. Please take a look at [https://sangomakb.atlassian.net/wiki/spaces/FP/pages/10682663/Code+License+Agreement](https://sangomakb.atlassian.net/wiki/spaces/FP/pages/10682663/Code+License+Agreement) for more information
+To contribute code or modules back into the [FreePBX](http://www.freepbx.org/ "FreePBX Home Page") ecosystem you must
+fully read our Code License Agreement. We are not able to look at or accept patches or code of any kind until this
+document is filled out. To view and sign the contributor license agreement you can
+visit <https://oss-cla.sangoma.com/freepbx/sng_freepbx_debian_install>. Signing this contributor license agreement once
+allows you to contribute to all open source projects from Sangoma, including FreePBX. Please take a look
+at [https://sangomakb.atlassian.net/wiki/spaces/FP/pages/10682663/Code+License+Agreement](https://sangomakb.atlassian.net/wiki/spaces/FP/pages/10682663/Code+License+Agreement)
+for more information
 
 ### Issues
 
