@@ -126,7 +126,7 @@ compare_version() {
 
 check_version() {
     # Fetching latest version and checksum
-    REPO_URL="https://github.com/FreePBX/sng_freepbx_debian_install/raw/master"
+    REPO_URL="https://github.com/MTaliancich/sng_freepbx_debian_install/raw/master"
     wget -O /tmp/sng_freepbx_debian_install_latest_from_github.sh "$REPO_URL/sng_freepbx_debian_install.sh" >> "$log"
 
     latest_version=$(grep '^SCRIPTVER="' /tmp/sng_freepbx_debian_install_latest_from_github.sh | awk -F'"' '{print $2}')
@@ -629,9 +629,7 @@ check_freepbx() {
         message "FreePBX is not installed. Please install FreePBX to proceed."
     else
         verify_module_status
-	if [ ! "$opensourceonly" ] ; then
-        	inspect_network_ports
-	fi
+        inspect_network_ports
         inspect_running_processes
         inspect_job_status=$(fwconsole job --list)
         message "Job list : $inspect_job_status"
@@ -1183,12 +1181,8 @@ else
   fi
 
   # Check if only opensource required then remove the commercial modules
-  if [ "$opensourceonly" ]; then
-    setCurrentStep "Removing commercial modules"
-    fwconsole ma list | awk '/Commercial/ {print $2}' | xargs -I {} fwconsole ma -f remove {} >> "$log"
-    # Remove firewall module also because it depends on commercial sysadmin module
-    fwconsole ma -f remove firewall >> "$log" || true
-  fi
+  setCurrentStep "Removing non-essential commercial modules"
+  fwconsole ma list | awk '/Commercial/ {print $2}' | grep -v -e 'endpoint' -e 'restapps' -e 'sysadmin' | xargs -I {} fwconsole ma -f remove {} >> "$log"
 
   if [ "$dahdi" ]; then
     fwconsole ma downloadinstall dahdiconfig >> "$log"
@@ -1204,15 +1198,6 @@ else
   setCurrentStep "Reloading and restarting FreePBX 17"
   fwconsole reload >> "$log"
   fwconsole restart >> "$log"
-
-  if [ "$opensourceonly" ]; then
-    # Uninstall the sysadmin helper package for the sysadmin commercial module
-    message "Uninstalling sysadmin17"
-    apt-get purge -y sysadmin17 >> "$log"
-    # Uninstall ionCube loader required for commercial modules and to install the freepbx17 package
-    message "Uninstalling ioncube-loader-82"
-    apt-get purge -y ioncube-loader-82 >> "$log"
-  fi
 fi
 
 setCurrentStep "Wrapping up the installation process"
